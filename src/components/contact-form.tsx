@@ -75,11 +75,8 @@ export function ContactForm() {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>Let&apos;s Talk About Your Business</CardTitle>
-        <CardDescription>
-          Tell us about the problems you&apos;re facing and we&apos;ll help you
-          solve them.
-        </CardDescription>
+        <CardTitle>Let&apos;s Talk Business</CardTitle>
+        <CardDescription>No bullshit, all result.</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -141,7 +138,7 @@ export function ContactForm() {
               onChange={(e) =>
                 handleChange("problem_description", e.target.value)
               }
-              placeholder="Describe THE business problem you're trying to solve..."
+              placeholder="Too much time on spread sheets, leads are not converting, churn rate too high,... "
             />
           </div>
 
