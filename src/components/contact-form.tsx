@@ -141,7 +141,7 @@ export function ContactForm() {
               onChange={(e) =>
                 handleChange("problem_description", e.target.value)
               }
-              placeholder="Describe the business problem you're trying to solve..."
+              placeholder="Describe THE business problem you're trying to solve..."
             />
           </div>
 
