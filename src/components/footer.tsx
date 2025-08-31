@@ -8,17 +8,17 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <div className="text-lg font-bold text-gray-900">
               Build Launch Iterate
+              <Image
+                src="/logo.svg"
+                alt="Build Launch Iterate Logo"
+                width={100}
+                height={75}
+                className="h-10 w-auto"
+              />
             </div>
-            <Image
-              src="/logo.svg"
-              alt="Build Launch Iterate Logo"
-              width={100}
-              height={75}
-              className="h-10 w-auto"
-            />
           </div>
           <div className="text-gray-600 text-sm">
-            © 2024 - Ship faster or die trying
+            © {new Date().getFullYear()} - Ship faster or die trying
           </div>
         </div>
       </div>

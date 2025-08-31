@@ -11,14 +11,14 @@ export function Navigation() {
           <div className="flex items-center gap-3">
             <div className="text-xl font-bold text-gray-900">
               Build Launch Iterate
+              <Image
+                src="/logo.svg"
+                alt="Build Launch Iterate Logo"
+                width={120}
+                height={90}
+                className="h-12 w-auto"
+              />
             </div>
-            <Image
-              src="/logo.svg"
-              alt="Build Launch Iterate Logo"
-              width={120}
-              height={90}
-              className="h-12 w-auto"
-            />
           </div>
           <div className="flex gap-8 items-center">
             <a
