@@ -26,6 +26,33 @@ export async function POST(request: Request) {
       RETURNING id, created_at
     `;
 
+    // Send webhook to N8N (if configured)
+    if (process.env.N8N_WEBHOOK_URL) {
+      try {
+        await fetch(process.env.N8N_WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event: "contact_form_submitted",
+            data: {
+              id: result[0].id,
+              name,
+              company: company || "Not provided",
+              phone: phone || "Not provided",
+              email,
+              problem_description,
+              submitted_at: result[0].created_at,
+            },
+          }),
+        });
+      } catch (webhookError) {
+        console.error("Webhook notification failed:", webhookError);
+        // Don't fail the form submission if webhook fails
+      }
+    }
+
     console.log("Contact form submitted:", {
       id: result[0].id,
       name,
