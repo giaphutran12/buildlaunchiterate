@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Launch Iterate - Ship in weeks, not months</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: white;
+            color: #111;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        
+        nav .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #9333ea;
+        }
+        
+        .btn-primary {
+            background: #000;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid #000;
+        }
+        
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #000;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px 0;
+        }
+        
+        .hero .tagline {
+            color: #9333ea;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+        
+        .hero .buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 48px 0;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+        }
+        
+        .process-item {
+            text-align: center;
+        }
+        
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #9333ea;
+        }
+        
+        .process-item h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .process-item p {
+            color: #666;
+        }
+        
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 64px;
+        }
+        
+        .comparison h3 {
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+        
+        .comparison-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-item .icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .icon-x {
+            color: #ef4444;
+        }
+        
+        .icon-check {
+            color: #22c55e;
+        }
+        
+        .comparison-item .text strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .comparison-item .text span {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .service-card {
+            padding: 32px;
+            border: 1px solid #e5e5e5;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: #9333ea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            color: #666;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: #000;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            color: #999;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .btn-white:hover {
+            background: #f5f5f5;
+        }
+        
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-white:hover {
+            background: white;
+            color: #000;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        footer .copyright {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">build launch iterate</div>
+                <div class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <p class="tagline">Software & Strategy for Future-Forward Businesses</p>
+            <h1>
+                Ship in weeks,<br>
+                <span class="gradient-text">not months.</span>
+            </h1>
+            <p>AI-powered development at startup speed. We build, launch, and iterate faster than traditional agencies ever could.</p>
+            <div class="buttons">
+                <a href="#contact" class="btn-primary">Start Building →</a>
+                <a href="#process" class="btn-secondary">See How We Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">10x</div>
+                    <div class="stat-label">Faster delivery</div>
+                </div>
+                <div>
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">Lower cost</div>
+                </div>
+                <div>
+                    <div class="stat-number">24hr</div>
+                    <div class="stat-label">First prototype</div>
+                </div>
+                <div>
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Iterations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Our process is our name</h2>
+            <p class="section-subtitle">Simple. Fast. Effective.</p>
+            
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <h3>Build</h3>
+                    <p>From zero to working product in days. AI-augmented development means we move at light speed.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <h3>Launch</h3>
+                    <p>Get to market fast. Real users, real feedback, real progress. No endless planning phases.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">3</div>
+                    <h3>Iterate</h3>
+                    <p>Continuous improvement based on actual data. Your product evolves as your business grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="comparison-grid">
+                <div>
+                    <h3>Traditional agencies are stuck in 2010</h3>
+                    <div class="comparison-item">
+                        <span class="icon icon-x">✕</span>
+                        <div class="text">
+                            <strong>6-month timelines</strong>
+                            <span>By the time they ship, the market's moved on</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon icon-x">✕</span>
+                        <div class="text">
+                            <strong>Bloated teams & invoices</strong>
+                            <span>You're paying for their office ping pong table</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon icon-x">✕</span>
+                        <div class="text">
+                            <strong>Legacy everything</strong>
+                            <span>Old tech, old thinking, old pace</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>We're built for now</h3>
+                    <div class="comparison-item">
+                        <span class="icon icon-check">✓</span>
+                        <div class="text">
+                            <strong>Ship in weeks</strong>
+                            <span>Get to market while your idea is still fresh</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon icon-check">✓</span>
+                        <div class="text">
+                            <strong>AI-augmented efficiency</strong>
+                            <span>Smaller team, bigger output, smarter solutions</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon icon-check">✓</span>
+                        <div class="text">
+                            <strong>Modern stack, modern pace</strong>
+                            <span>Latest tools, fastest workflows, best practices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">What we build</h2>
+            <p class="section-subtitle">Full-stack solutions powered by AI</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>MVP Development</h3>
+                    <p>From idea to working product in record time. Perfect for startups and new ventures.</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI Integration</h3>
+                    <p>Add intelligence to your existing products. LLMs, computer vision, predictive analytics.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Web Applications</h3>
+                    <p>Modern, scalable web apps that actually ship. React, Next.js, and whatever gets it done.</p>
+                </div>
+                <div class="service-card">
+                    <h3>API Development</h3>
+                    <p>Robust backends and integrations that scale. Built for the real world.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Product Strategy</h3>
+                    <p>Technical roadmapping and strategic guidance. We think, then we build.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Rapid Prototyping</h3>
+                    <p>Test ideas fast before committing resources. Fail fast or scale fast.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to move fast?</h2>
+            <p>Let's talk about your project. No lengthy discovery phase, no bullshit.<br>Just a conversation about how to get you to market faster.</p>
+            <div class="cta-buttons">
+                <a href="mailto:hello@buildlaunchiterate.com" class="btn-white">hello@buildlaunchiterate.com</a>
+                <a href="#" class="btn-outline-white">Schedule a Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">build launch iterate</div>
+                <div class="copyright">© 2024 - Ship faster or die trying</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
