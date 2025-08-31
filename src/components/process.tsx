@@ -21,28 +21,23 @@ export function Process() {
   ];
 
   return (
-    <section id="process" className="py-20 relative">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent"></div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-4 luxury-text-gradient">
+    <section id="process" className="py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-4">
           Our process is our name
         </h2>
-        <p className="text-xl text-gray-300 text-center mb-16">
+        <p className="text-xl text-gray-600 text-center mb-16">
           Simple. Fast. Effective.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {processSteps.map((step) => (
-            <div key={step.number} className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold luxury-accent-gradient group-hover:scale-110 transition-transform duration-300 border border-cyan-500/30">
+            <div key={step.number} className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-purple-600">
                 {step.number}
               </div>
-              <h3 className="text-2xl mb-3 text-white">{step.title}</h3>
-              <p className="text-gray-300 leading-relaxed">
-                {step.description}
-              </p>
+              <h3 className="text-2xl mb-3">{step.title}</h3>
+              <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
         </div>

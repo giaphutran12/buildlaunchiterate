@@ -32,42 +32,38 @@ export function Comparison() {
   ];
 
   return (
-    <section className="py-20 relative">
-      {/* Luxury background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-cyan-900/20"></div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="glass-card p-8 rounded-2xl">
-            <h3 className="text-3xl mb-8 text-red-400 font-semibold">
+          <div>
+            <h3 className="text-3xl mb-8">
               Traditional agencies are stuck in 2010
             </h3>
             {traditionalProblems.map((problem, index) => (
               <div key={index} className="flex gap-3 mb-5">
                 <X className="text-red-500 text-xl flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block mb-1 text-white">
-                    {problem.title}
-                  </strong>
-                  <span className="text-gray-300 text-sm">
+                  <strong className="block mb-1">{problem.title}</strong>
+                  <span className="text-gray-600 text-sm">
                     {problem.description}
                   </span>
                 </div>
               </div>
             ))}
           </div>
-          <div className="glass-card p-8 rounded-2xl">
-            <h3 className="text-3xl mb-8 text-cyan-400 font-semibold">
-              We&apos;re built for now
+          <div>
+            <h3 className="text-3xl mb-8">
+              We&apos;re built for{" "}
+              <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+                now
+              </span>
             </h3>
             {ourAdvantages.map((advantage, index) => (
               <div key={index} className="flex gap-3 mb-5">
-                <Check className="text-cyan-500 text-xl flex-shrink-0 mt-0.5" />
+                <Check className="text-green-500 text-xl flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block mb-1 text-white">
-                    {advantage.title}
-                  </strong>
-                  <span className="text-gray-300 text-sm">
+                  <strong className="block mb-1">{advantage.title}</strong>
+                  <span className="text-gray-600 text-sm">
                     {advantage.description}
                   </span>
                 </div>

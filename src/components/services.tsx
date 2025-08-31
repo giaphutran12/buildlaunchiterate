@@ -35,15 +35,10 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 relative">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-cyan-500/5 to-transparent"></div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-4 luxury-text-gradient">
-          What we build
-        </h2>
-        <p className="text-xl text-gray-300 text-center mb-16">
+    <section id="services" className="py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-4">What we build</h2>
+        <p className="text-xl text-gray-600 text-center mb-16">
           Full-stack solutions powered by AI
         </p>
 
@@ -51,17 +46,13 @@ export function Services() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="glass-card hover:border-cyan-400/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group"
+              className="hover:border-purple-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <CardHeader>
-                <CardTitle className="text-xl text-white group-hover:text-cyan-400 transition-colors duration-300">
-                  {service.title}
-                </CardTitle>
+                <CardTitle className="text-xl">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-300 leading-relaxed">
-                  {service.description}
-                </p>
+                <p className="text-gray-600">{service.description}</p>
               </CardContent>
             </Card>
           ))}
