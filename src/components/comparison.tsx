@@ -52,7 +52,7 @@ export function Comparison() {
             ))}
           </div>
           <div>
-            <h3 className="text-3xl mb-8">
+            <h3 className="text-3xl mb-17">
               We&apos;re built for{" "}
               <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
                 now
