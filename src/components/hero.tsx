@@ -16,7 +16,7 @@ export function Hero() {
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mb-8">
           AI-powered development at startup speed. We build, launch, and iterate
-          faster than traditional agencies ever could.
+          faster than any traditional agencies ever could.
         </p>
         <div className="flex gap-4 flex-wrap">
           <Button asChild size="lg">
