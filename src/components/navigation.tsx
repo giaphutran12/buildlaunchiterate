@@ -48,7 +48,7 @@ export function Navigation() {
               Process
             </a>
             <Button asChild>
-              <a href="#contact">Get Started</a>
+              <a href="#call-to-action">Get Started</a>
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ export function Navigation() {
               Process
             </a>
             <Button asChild className="w-full">
-              <a href="#contact" onClick={closeMobileMenu}>
+              <a href="#call-to-action" onClick={closeMobileMenu}>
                 Get Started
               </a>
             </Button>
