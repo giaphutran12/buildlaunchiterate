@@ -8,7 +8,7 @@ export function Comparison() {
     },
     {
       title: "Bloated teams & invoices",
-      description: "You&apos;re paying for their office ping pong table",
+      description: "You're paying for their office ping pong table",
     },
     {
       title: "Legacy everything",
