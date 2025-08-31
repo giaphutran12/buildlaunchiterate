@@ -60,11 +60,7 @@ export function Process() {
           {processSteps.map((step, index) => (
             <div key={index} className="text-center group">
               <div className="w-24 h-24 bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl flex items-center justify-center mx-auto mb-6 border-2 border-purple-100 shadow-sm hover:shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-purple-200">
-                {step.icon || (
-                  <span className="text-2xl font-bold text-purple-600">
-                    {step.number}
-                  </span>
-                )}
+                {step.icon}
               </div>
               <h3 className="text-2xl font-semibold mb-3 text-gray-900">
                 {step.title}
