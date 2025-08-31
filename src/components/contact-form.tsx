@@ -141,7 +141,7 @@ export function ContactForm() {
               onChange={(e) =>
                 handleChange("problem_description", e.target.value)
               }
-              placeholder="Describe the business problem you are trying to solve..."
+              placeholder="Describe the business problem you're trying to solve..."
             />
           </div>
 
@@ -157,7 +157,7 @@ export function ContactForm() {
 
           {submitStatus === "error" && (
             <p className="text-red-600 text-sm text-center">
-              Something went wrong. Please try again.
+              Something went wrong. Please try again later.
             </p>
           )}
         </form>
