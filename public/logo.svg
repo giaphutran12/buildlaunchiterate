@@ -1,0 +1,30 @@
+<svg width="240" height="180" viewBox="0 0 160 120"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Luxury Infinity Logo</title>
+  <desc id="desc">A refined, LV-inspired infinity symbol with slimmer loops and elegant curves.</desc>
+  
+  <defs>
+    <!-- Gradient from burgundy → gold → olive → burgundy -->
+    <linearGradient id="luxGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%"   stop-color="#453630"/>
+      <stop offset="33%"  stop-color="#92784E"/>
+      <stop offset="66%"  stop-color="#9B7E4B"/>
+      <stop offset="100%" stop-color="#453630"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Slimmer infinity path -->
+  <path
+    d="M20 60
+       C20 35, 60 35, 80 60
+       S140 85, 140 60
+       S100 35, 80 60
+       S20 85, 20 60"
+    fill="none"
+    stroke="url(#luxGrad)"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
