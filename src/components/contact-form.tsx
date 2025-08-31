@@ -75,10 +75,10 @@ export function ContactForm() {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>Let's Talk About Your Business</CardTitle>
+        <CardTitle>Let&apos;s Talk About Your Business</CardTitle>
         <CardDescription>
-          Tell us about the problems you're facing and we'll help you solve
-          them.
+          Tell us about the problems you&apos;re facing and we&apos;ll help you
+          solve them.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -151,7 +151,7 @@ export function ContactForm() {
 
           {submitStatus === "success" && (
             <p className="text-green-600 text-sm text-center">
-              Thank you! We'll get back to you soon.
+              Thank you! We&apos;ll get back to you soon.
             </p>
           )}
 

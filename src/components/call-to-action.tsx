@@ -10,8 +10,8 @@ export function CallToAction() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Let's discuss the challenges you're facing and how we can help you
-            build, launch, and iterate your way to success.
+            Let&apos;s discuss the challenges you&apos;re facing and how we can
+            help you build, launch, and iterate your way to success.
           </p>
         </div>
 
