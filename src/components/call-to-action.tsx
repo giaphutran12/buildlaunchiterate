@@ -5,12 +5,9 @@ export function CallToAction() {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
-            Ready to Transform Your Business?
-          </h2>
+          <h2 className="text-4xl font-bold mb-4">Ready to Move Fast?</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Let&apos;s discuss the challenges you&apos;re facing and how we can
-            help you build, launch, and iterate your way to success.
+            Tell us your problems, we&apos;ll help you solve them.
           </p>
         </div>
 
